@@ -1,0 +1,137 @@
+/* 
+    display: block       -
+        -> Giúp có thể đặt được chiều ngang (dọc) trong
+        -> Kế thừa lại chiều ngang của thẻ chứa nó
+        -> Các phần tử block không nằm trên cùng 1 hàng
+
+    display: inline-block
+        -> Vẫn giữ tính chất block và có thể nằm trên cùng 1 hàng
+*/
+
+.header {
+    height: 120px;
+    background-image: linear-gradient(0, #fe6433, #f53e2d);
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 8px;
+
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+    min-height: 26px;
+    position: relative;
+}
+
+.header__navbar-item--has-qr:hover .header__qr {
+    display: block;
+}
+
+.header__navbar-item,
+.header__navbar-item-link {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.header__navbar-item,
+.header__navbar-item-link,
+.header__navbar-icon  {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header__navbar-item:hover,
+.header__navbar-item-link:hover,
+.header__navbar-icon-link:hover {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7)
+}
+
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    height: 16px;
+    border-right: 1px solid #FB9086;
+    position: absolute;
+    right: -8px;
+    top: 50%; /* 50% của the <li> */
+    transform: translateY(-50%); /* -50% của kích thước chiều cao của chính nó (12px / 2 = 6px) */
+}
+
+.header__navbar-icon-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header__navbar-icon {
+    font-size: 1.8rem;
+    margin: 0 4px;
+}
+
+.header__navbar-title--no-pointer {
+    cursor: text;
+    color: var(--white-color);
+}
+
+/* Header QR code */
+.header__qr {
+    background-color: var(--white-color);
+    width: 186px;
+    padding: 8px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 118%; /* 100% => Khoảng cách cách thẻ relative = chiều cao của thẻ chứa nó*/
+    display: none;
+    animation: fadeIn ease-in 0.3s;
+}
+
+.header__qr::before {
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 100%;
+    height: 18%;
+    content: "";
+    display: block;
+}
+
+.header__qr-img {
+    width: 100%;
+}
+
+.header__qr-apps {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .header__qr-link:first-child */
+.header__qr-link:nth-child(1) {
+    margin-left: 12px;
+}
+
+.header__qr-link:nth-child(2) {
+    margin-right: 12px;
+}
+
+.header__qr-download-img {
+    height: 15px;
+}
+
+
