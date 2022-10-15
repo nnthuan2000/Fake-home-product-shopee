@@ -4,6 +4,7 @@
     --black-color: #000;
     --text-color: #333;
     --border-color: #dbdbdb;
+    --star-gold-color: #ffce3e;
 
     --header-height: 120px;
     --navbar-height: 32px;
@@ -21,6 +22,8 @@ html {
     line-height: 1.6rem;
     box-sizing: border-box;
 }
+
+/* Responsive */
 
 /* Với những màn hình có kích thước lớn hơn 1200px thì kích thước thực tế hiển thị là 1200px, còn đối với những màn hình có kích thước nhỏ hơn 1200px thì kích thước thực tế sẽ bằng kích thước của màn hình đó (min-width: 100%) */
 .grid {
@@ -41,7 +44,30 @@ html {
 .grid__row {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
 }
+
+/* Test */
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: calc(100% / 12 * 2);
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: calc(100% / 5);
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: calc(100% / 12 * 10);
+}
+
+
 
 /* Animation */
 @keyframes fadeIn {
@@ -104,7 +130,7 @@ html {
     cursor: pointer;
     background-color: var(--white-color);
     color: var(--text-color);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     line-height: 1.6rem;
@@ -135,3 +161,118 @@ html {
 .btn.btn--with-icon {
 
 }
+
+
+/* Selection */
+.select-input {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+
+.select-input__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style-type: none;
+    display: none;
+    z-index: 1;
+}
+
+.select-input__list::before {
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 100%;
+    height: 24%;
+    content: "";
+    display: block;
+}
+
+.select-input__item {
+
+}
+
+.select-input__link {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+}
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item__link {
+    --height: 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    text-align: center;
+    border-radius: 2px;
+}
+
+.pagination-item--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    background-color: #ed5c3f;
+}
+
+.pagination-item__icon {
+
+}
+
+
+
+
+
+
